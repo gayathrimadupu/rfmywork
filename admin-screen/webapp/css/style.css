@@ -1,0 +1,125 @@
+/* Enter your custom styles here */
+
+.sapUiSmallMargin{
+    border: 1cm;
+}
+/* .boxContainer {
+    border-radius: 1rem;
+    border: 2px solid black;
+    padding: 3%;
+    width:35%
+} */
+.boxContainer {
+    border-radius: 1rem;
+    border: 2px solid black; /* Add border width, style, and color */
+    padding: 3%;
+    width: 100%;
+}
+ 
+.person {
+    width: 40px;
+    height:40px; /* Ensure image maintains its aspect ratio */
+}
+.dropdown{
+    width: 100%;
+}
+ 
+.queueDropdownContainer {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+}
+ 
+/* Additional class to add gap between label and dropdown */
+.queueDropdownContainer label {
+    margin-right: 3.3rem; /* Adjust the margin as needed to control the gap */
+}
+ 
+/* Custom class to increase the size of the Select element */
+.customSelect {
+    width: 100%;  /* Adjust width as needed */
+    height: 2.5rem; /* Adjust height as needed */
+}
+ 
+/* Optional: Adjust styling of the Select dropdown */
+.customSelect .sapMSelect {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem; /* Adjust font size if needed */
+}
+.Inputs{
+    width:100%
+}
+/* @media only screen and (max-width:600px){
+    .Inputs{
+        width:80vw ;
+    }
+ 
+} */
+ 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .boxContainer {
+        width: 100%;
+    }
+ 
+    .person {
+        width: 100%;
+    }
+    .boxContainer {
+        border-radius: 1rem;
+        border: 1px solid black;
+        padding: 3%;
+        width:80%;
+    }
+    .Inputs{
+        width: 70%;
+    }
+ 
+}
+ 
+.header{
+    background-image: linear-gradient(145deg, #fbe0b6,  #ee833f, #fbe0b6);
+}
+.pages {
+ 
+    background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+}
+.nav{
+    min-height: 5.55rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: changeBackground1  50s infinite;
+  }
+   
+  @keyframes changeBackground1 {
+       
+      0% {
+        background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+       
+      }
+      25% {
+       
+        background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+      }
+      50% {
+        background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+      }
+      75% {
+        background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+      }
+      100% {
+        background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+  }
+  }
+  .page1{
+    padding-right: 70%;
+        background-image: url("../image/resourceIdGeneration.gif"); /* Assign or Content */
+        background-size:auto; /* Adjust as needed */
+        background-repeat: no-repeat;
+        background-position: center center; /* Adjust as needed */
+        width: 70%;
+        height: 70%;
+    }
+ 

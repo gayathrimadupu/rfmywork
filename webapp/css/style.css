@@ -1,0 +1,80 @@
+/* Enter your custom styles here */
+.person{
+    margin-top: 30% !important;
+}
+.header {
+ 
+  background-image: linear-gradient(145deg,#fbe0b6, #fea555,   #fbe0b6);
+}
+/* page background */
+.pages {
+ 
+    background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+}
+.label{
+    color:black;
+    font-weight:bold;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.nav{
+  min-height: 5.55rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: changeBackground1  50s infinite;
+}
+ 
+@keyframes changeBackground1 {
+     
+    0% {
+      background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+     
+    }
+    25% {
+     
+      background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+    }
+    50% {
+      background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+    }
+    75% {
+      background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+    }
+    100% {
+      background-image: linear-gradient(145deg, #fea555,   #fbe0b6, #ee833f);
+}
+}
+ 
+.tile{
+   
+  background-image: linear-gradient(145deg,  #fbe0b6,   #fbe0b6, #ee833f);
+}
+.bottom{
+  background-image: url("https://noted.lol/content/images/2022/06/scan-qr-code-gif.gif");
+  margin-top: 70%;
+}
+/* #__panel0-content1 sapMPanelBGTranslucent {
+ background-color: transparent !important;
+} */
+ 
+.sapMPanelBGTranslucent {
+  background-color: transparent;
+}
+#__vbox1{
+  background-color: transparent;
+}
+.boxContainer {
+  border-radius: 10px; /* Rounded corners */
+  padding-left: 2rem; /* Inner spacing */
+  padding-right: 2rem; 
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  margin-left: 10%;
+  margin-top: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: rgba(249, 249, 249, 0.3); /* Semi-transparent background color for glass effect */
+  backdrop-filter: blur(10px); /* Glass effect with blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+
+}

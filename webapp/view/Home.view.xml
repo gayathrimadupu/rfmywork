@@ -1,0 +1,118 @@
+<mvc:View
+    controllerName="com.app.rfscreens.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        class="Page"
+    >
+        <content>
+            <FlexBox
+                id="_IDGenFlexBoxMain"
+                justifyContent="Center"
+                alignItems="Center"
+                class="pages"
+                height="100%"
+                direction="Row"
+            >
+                <VBox
+                    id="_IDGenVBoxContainer"
+                    class="boxContainer"
+                >
+                    <Label
+                        id="idwHtext"
+                        class="label"
+                        text="Warehouse No:"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="idwhInput"
+                        placeholder="Enter Warehouse No"
+                        width="100%"
+                        textAlign="Initial"
+                    />
+                    <Label
+                        id="_IDGenLabel1"
+                        class="label"
+                        text="Resource ID:"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="IdResourceInput"
+                        type="Password"
+                        placeholder="Enter Resource ID"
+                        width="100%"
+                        textAlign="Initial"
+                    />
+                    <Label
+                        id="_IDGenLabel2"
+                        class="label"
+                        text="Password:"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="Idpassword"
+                        placeholder="Enter Password"
+                        width="100%"
+                        textAlign="Initial"
+                    />
+                    <Link
+                        id="_IDforgotLink"
+                        text="Forgot Password?"
+                        press="handleLinkPress"
+                    />
+
+                    <VBox
+                        id="buttonVBox"
+                        class="sapUiSmallMarginTop"
+                        alignItems="Center"
+                    >
+                        <HBox
+                            id="buttonHBox"
+                            justifyContent="Center"
+                            alignItems="Center"
+                            width="100%"
+                        >
+                            <Button
+                                icon="sap-icon://visits"
+                                id="Loginbtn"
+                                text="Login"
+                                type="Accept"
+                                press="onResourceLoginBtnPress"
+                            />
+                            <ToolbarSpacer
+                                id="_IDGenToolbarSpacer1"
+                                width="40px"
+                            />
+                            <!-- Spacer for gap between buttons -->
+                            <Button
+                                id="Signupbtn"
+                                text="Sign Up"
+                                type="Default"
+                                press="onPressSignupBtn"
+                            />
+                        </HBox>
+                    </VBox>
+                </VBox>
+                <Image
+                    id="idiimage"
+                    src="../image/login.gif"
+                    width="200px"
+                    height="200px"
+                    class="person"
+                />
+            </FlexBox>
+            <MessageStrip
+                id="idMessageStrip"
+                visible="false"
+                type="Success"
+                showIcon="true"
+                showCloseButton="true"
+                class="sapUiMediumMarginBottom"
+            />
+        </content>
+    </Page>
+</mvc:View>
