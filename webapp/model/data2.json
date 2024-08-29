@@ -1,0 +1,30 @@
+{
+	"selectedKey": "page0",
+	"navigation": [
+		
+		{
+			"title": "Screen1",
+			"key": "page1",
+            "visible" : true
+		},
+		{
+			"title": "Screen2",
+			"key": "page2",
+            "visible" : false
+		},
+        {
+			"title": "Screen3",
+			"key": "page3",
+            "visible" : false
+		},
+        {
+			"title": "Screen4",
+			"key": "page4",
+            "visible" : false
+		}
+		
+		
+		
+		
+	]
+}

@@ -106,6 +106,13 @@
           "target": [
             "TargetUsermenu"
           ]
+        },
+        {
+          "name": "RouteHUQuery",
+          "pattern": "HuQueryView",
+          "target": [
+            "TargetHUQuery"
+          ]
         }
       ],
       "targets": {
@@ -122,7 +129,14 @@
           "clearControlAggregation": false,
           "viewId": "Usermenu",
           "viewName": "Usermenu"
-        }
+        },
+        "TargetHUQuery": {                      
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "HUQuery",
+        "viewName": "HuQueryView"
+    }
       }
     },
     "rootView": {

@@ -1,17 +1,20 @@
+
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/Device",
-    "sap/ui/model/json/JSONModel",
-    "sap/m/Popover",
-    "sap/m/Button",
-    "sap/m/library"
+	"sap/ui/model/json/JSONModel",
+	"sap/m/Popover",
+	"sap/m/Button",
+	"sap/m/library"
 ],
 function (Controller,Device,JSONModel,Popover,Button,library) {
     "use strict";
- 
-    return Controller.extend("com.app.rfscreens.controller.Usermenu", {
+
+    return Controller.extend("com.app.rfscreens.controller.AdminView", {
         onInit: function () {
-            var oModel = new JSONModel(sap.ui.require.toUrl("com/app/rfscreens/model/data.json"));
+            
+			var oModel = new JSONModel(sap.ui.require.toUrl("com/app/rfscreens/model/data1.json"));
             this.getView().setModel(oModel);
             this._setToggleButtonTooltip(!Device.system.desktop);
         },
@@ -61,11 +64,28 @@ function (Controller,Device,JSONModel,Popover,Button,library) {
                 oToggleButton.setTooltip('Small Size Navigation');
             }
         },
-        OnPressHUQuery: function () {
-            // Navigation logic
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteHUQuery");
+        
+         /** Notification text */
+         onNotificationAdminPress: function (oEvent) {
+            var oButton = oEvent.getSource(),
+                oView = this.getView();
+                debugger
+
+            // create popover
+            if (!this._pPopover) {
+                this._pPopover = this.loadFragment({
+                    name: "com.app.outbound.fragments.notificationAdmin"
+                }).then(function (oPopover) {
+                    oView.addDependent(oPopover);
+                    oPopover.bindElement("");
+                    return oPopover;
+                });
+            }
+            this._pPopover.then(function (oPopover) {
+                oPopover.openBy(oButton);
+            });
         },
+
+		
     });
 });
- 
