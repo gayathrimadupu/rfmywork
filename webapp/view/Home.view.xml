@@ -28,27 +28,33 @@
                         text="Warehouse No:"
                         textAlign="Initial"
                     />
-                    <Input
-                        id="idwhInput"
-                        placeholder="Enter Warehouse No"
-                        width="100%"
-                        textAlign="Initial"
-                    />
+                   <Input
+    id="idwhInput"
+    placeholder="Enter Warehouse No"
+    editable="true"
+    value="1710"
+    width="100%"
+    liveChange="onLiveChange"
+    textAlign="Initial"
+    valueState="None"
+    valueStateText="Warehouse number does not match!" />
                     <Label
-                        id="_IDGenLabel1"
+                        id="_IDGenLabel11"
                         class="label"
                         text="Resource ID:"
                         textAlign="Initial"
                     />
                     <Input
                         id="IdResourceInput"
-                        type="Password"
+                    
                         placeholder="Enter Resource ID"
                         width="100%"
+                        value="11023"
+                        
                         textAlign="Initial"
                     />
                     <Label
-                        id="_IDGenLabel2"
+                        id="_IDGenLabel21"
                         class="label"
                         text="Password:"
                         textAlign="Initial"
@@ -57,6 +63,8 @@
                         id="Idpassword"
                         placeholder="Enter Password"
                         width="100%"
+                        type="Password"
+                        value="Kalyani@123"
                         textAlign="Initial"
                     />
                     <Link

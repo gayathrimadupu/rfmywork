@@ -5,10 +5,8 @@
     xmlns:tnt="sap.tnt"
     height="100%"
 >
-    <tnt:ToolPage
-        id="toolPage"
-    >
-         <tnt:header>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
             <tnt:ToolHeader
                 id="idtntToolHeader"
                 class="header"
@@ -43,27 +41,23 @@
                             minWidth="20px"
                         />
                     </layoutData>
-                 
                 </ToolbarSpacer>
 
-                 <Image
+                <Image
                     height="1.5rem"
                     class="sapUiSmallMarginBegin"
                     src="https://artihcus.com/assets/img/AG-logo.png"
                 />
 
-                   <Avatar
-                       
-                        displaySize="XS"
-                        press="onAvatarPressed"
-                        tooltip="Profile"
-                    >
-                        <layoutData>
-                            <OverflowToolbarLayoutData
-                                priority="NeverOverflow"
-                            />
-                        </layoutData>
-                    </Avatar>
+                <Avatar
+                    displaySize="XS"
+                    press="onAvatarPressed"
+                    tooltip="Profile"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Avatar>
             </tnt:ToolHeader>
         </tnt:header>
         <tnt:sideContent>
@@ -72,12 +66,12 @@
                 expanded="true"
                 selectedKey="{/selectedKey}"
                 itemSelect=".onItemSelect"
-                    class="nav"
+                class="nav"
             >
                 <tnt:NavigationList
                     items="{path: '/navigation'}"
                     id="idNavigationList"
-                        class="nav"
+                    class="nav"
                 >
                     <tnt:NavigationListItem
                         id="idNavigationListItem"
@@ -91,7 +85,7 @@
                         <tnt:NavigationListItem
                             id="idNavigationListItem1"
                             text="{title}"
-                                class="nav"
+                            class="nav"
                             key="{key}"
                             enabled="{enabled}"
                         />
@@ -101,13 +95,13 @@
                     <tnt:NavigationList
                         id="idNavigationList3"
                         items="{path: '/fixedNavigation'}"
-                           class="nav"
+                        class="nav"
                     >
                         <tnt:NavigationListItem
                             id="idNavigationListItem3"
                             text="{title}"
                             icon="{icon}"
-                                class="nav"
+                            class="nav"
                         />
                     </tnt:NavigationList>
                 </tnt:fixedItem>
@@ -720,13 +714,30 @@
                             class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile"
                             header="HU Query"
                             press="OnPressHUQuery"
-                        />
+                        >
+                            <tileContent>
+                                <TileContent>
+                                    <content>
+                                        <VBox
+                                            class="sapUiSmallMargin"
+                                            alignItems="Center"
+                                        >
+                                            <CheckBox
+                                                id="idCheckBoxReceivingofHUbyTU"
+                                                select="onCheckBoxSelect"
+                                                class="sapUiTinyMarginTop"
+                                            />
+                                        </VBox>
+                                    </content>
+                                </TileContent>
+                            </tileContent>
+                        </GenericTile>
 
                         <GenericTile
                             id="_IDStockBinQuerybyBin"
                             class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout tile"
                             header="Stock/Bin Query by Bin"
-                            press="OnPressStock/BinQuerybyBin"
+                            press="OnPressStockBinQueryByBin"
                         />
 
                         <GenericTile
@@ -826,5 +837,3 @@
         </tnt:mainContents>
     </tnt:ToolPage>
 </mvc:View>
- 
- 

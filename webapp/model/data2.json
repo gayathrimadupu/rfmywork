@@ -6,6 +6,7 @@
 			"title": "Screen1",
 			"key": "page1",
             "visible" : true
+			
 		},
 		{
 			"title": "Screen2",

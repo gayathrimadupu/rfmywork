@@ -113,6 +113,13 @@
           "target": [
             "TargetHUQuery"
           ]
+        },
+        {
+          "name": "RouteStockBinQueryByBin",
+          "pattern": "StockBinQueryByBin",
+          "target": [
+            "TargetStockBinQueryByBin"
+          ]
         }
       ],
       "targets": {
@@ -136,8 +143,16 @@
         "clearControlAggregation": false,
         "viewId": "HUQuery",
         "viewName": "HuQueryView"
-    }
+    },
+    "TargetStockBinQueryByBin": {                      
+      "viewType": "XML",
+      "transition": "slide",
+      "clearControlAggregation": false,
+      "viewId": "StockBinQueryByBin",
+      "viewName": "StockBinQueryByBin"
+  }
       }
+      
     },
     "rootView": {
       "viewName": "com.app.rfscreens.view.App",
@@ -151,3 +166,4 @@
     "service": "comapprfscreens"
   }
 }
+

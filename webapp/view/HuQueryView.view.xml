@@ -1,12 +1,11 @@
-<mvc:View 
-controllerName="com.app.rfscreens.controller.HuQueryView"
-xmlns:unified="sap.ui.unified"
-   xmlns:mvc="sap.ui.core.mvc"
-  
+<mvc:View
+    controllerName="com.app.rfscreens.controller.HuQueryView"
+    xmlns:unified="sap.ui.unified"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
     xmlns:layout="sap.ui.layout"
-      xmlns:f="sap.ui.layout.form"
-      xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:smartTable="sap.ui.comp.smarttable"
     xmlns:ndc="sap.ndc"
     xmlns:cssgrid="sap.ui.layout.cssgrid"
     xmlns:vbm="sap.ui.vbm"
@@ -14,27 +13,25 @@ xmlns:unified="sap.ui.unified"
     xmlns:commons="sap.suite.ui.commons"
     xmlns:simple="sap.gantt.simple"
     xmlns:launchpad="sap.ushell.ui.launchpad"
- 
     xmlns:uxap="sap.uxap"
     xmlns:form="sap.ui.layout.form"
-    
     xmlns="sap.m"
-   
     displayBlock="true"
-    xmlns:tnt="sap.tnt">
-
+    xmlns:tnt="sap.tnt"
+>
     <Page
         showHeader="false"
-        class="PageBackground">
-        
+        class="PageBackground"
+    >
         <tnt:ToolHeader
             id="shellLikeToolHeader"
-            visible="true">
-
+            visible="true"
+        >
             <Title
-                text="RF UI"
+                text="RFUI"
                 wrapping="false"
-                id="productName">
+                id="productName"
+            >
                 <layoutData>
                     <OverflowToolbarLayoutData priority="Disappear" />
                 </layoutData>
@@ -43,7 +40,8 @@ xmlns:unified="sap.ui.unified"
             <Text
                 text="By Artihcus Global"
                 wrapping="false"
-                id="secondTitle">
+                id="secondTitle"
+            >
                 <layoutData>
                     <OverflowToolbarLayoutData priority="Disappear" />
                 </layoutData>
@@ -53,7 +51,10 @@ xmlns:unified="sap.ui.unified"
 
             <ToolbarSpacer id="spacer">
                 <layoutData>
-                    <OverflowToolbarLayoutData priority="Low" group="1" />
+                    <OverflowToolbarLayoutData
+                        priority="Low"
+                        group="1"
+                    />
                 </layoutData>
             </ToolbarSpacer>
 
@@ -72,143 +73,256 @@ xmlns:unified="sap.ui.unified"
                 src="test-resources/sap/tnt/images/Woman_avatar_01.png"
                 displaySize="XS"
                 press="onAvatarPressed"
-                tooltip="Profile">
+                tooltip="Profile"
+            >
                 <layoutData>
                     <OverflowToolbarLayoutData priority="NeverOverflow" />
                 </layoutData>
             </Avatar>
-
         </tnt:ToolHeader>
 
         <content>
-         
-                  <Button id="_IDGenButton1122" icon="sap-icon://nav-back" press="Onpressback1"  visible="false" />
-                  <Button id="_IDGenButton1111" icon="sap-icon://nav-back" press="Onpressback2"  visible="false"/>
-                
-                
+            <Button
+                id="_IDGenButton1122"
+                icon="sap-icon://nav-back"
+                press="Onpressback1"
+                visible="false"
+            />
+            <Button
+                id="_IDGenButton1111"
+                icon="sap-icon://nav-back"
+                press="Onpressback2"
+                visible="false"
+            />
 
             <IconTabBar
                 expanded="true"
-                id="IconTabBar">
-                
+                id="IconTabBar"
+            >
                 <items>
                     <IconTabFilter
-                      id="icon1"
-                    visible="true"
+                        id="icon1"
+                        visible="true"
                         key="info"
-                        text="Scanning HU">
-                        <HBox>
+                        text="Scanning HU"
+                    >
+                        <VBox>
                             <f:SimpleForm
                                 id="simpleForm"
                                 layout="ResponsiveGridLayout"
-                                editable="true">
-                                
-                                <Label id="_IDGenLabel1" text="Scan HU" />
-                                <HBox id="_IDGenHBox1">
-                                    <Input id="_IDGenInput1" placeholder="Enter HU..." />
+                                editable="true"
+                            >
+                                <HBox
+                                    id="_IDGenHBoxContainer"
+                                    justifyContent="Start"
+                                >
+                                    <!-- Scan HU Label -->
+                                    <Label
+                                        id="_IDGenLabel1"
+                                        text="Scan HU : "
+                                    />
+                                    <!-- Input Field -->
+                                    <Input
+                                        id="_IDGenInput1"
+                                        placeholder="Enter HU..."
+                                    />
+                                    <!-- Barcode Scan Button -->
+                                    <Button
+                                        id="_IDGenButton11"
+                                        icon="sap-icon://bar-code"
+                                        press="Onpressscan"
+                                    />
+                                    <!-- Submit Button -->
+                                    <Button
+                                        id="_IDGenButton111"
+                                        text="Submit"
+                                        press="Onpresssubmit"
+                                    />
                                 </HBox>
-                                <Button id="_IDGenButton111" text="Submit" press="Onpresssubmit" />
-                                <HBox id="_IDGenHBox555">
-                                    <Button id="_IDGenButton11" icon="sap-icon://bar-code" press="Onpressscan" />
-                                </HBox>
-
                             </f:SimpleForm>
-                        </HBox>
+                        </VBox>
                     </IconTabFilter>
 
                     <IconTabFilter
-                      id="icon2"
-                    visible="false"
+                        id="icon2"
+                        visible="false"
                         key="info1"
-                        text="Content">
+                        text="HU Details"
+                    >
                         <f:SimpleForm
                             id="simpleForm1"
                             layout="ResponsiveGridLayout"
-                            editable="true">
-
-                            <Label id="_IDGenLabel2" text="Scan HU" />
+                            editable="true"
+                        >
+                            <Label
+                                id="_IDGenLabel2"
+                                text="Scan HU"
+                            />
                             <HBox id="_IDGenHBox2">
-                                <Input id="_IDGenInput2" placeholder="Enter HU..." />
+                                <Input
+                                    id="_IDGenInput2"
+                                    placeholder="Enter HU..."
+                                />
                             </HBox>
 
-                            <Label id="_IDGenLabel3" text="HU Type" />
+                            <Label
+                                id="_IDGenLabel3"
+                                text="HU Type"
+                            />
                             <HBox id="_IDGenHBox3">
-                                <Input id="_IDGenInput3" placeholder="Enter HU Type..." />
+                                <Input
+                                    id="_IDGenInput3"
+                                    placeholder="Enter HU Type..."
+                                />
                             </HBox>
 
-                            <Label id="_IDGenLabel4" text="Dimensions" />
-                            <Label id="_IDGenLabel3i2" text="Length" />
+                            <Label
+                                id="_IDGenLabel4"
+                                text="Dimensions"
+                            />
+                            <Label
+                                id="_IDGenLabel3i2"
+                                text="Length"
+                            />
                             <HBox id="_IDGenHBoxk">
-                                <Input id="_IDGenInput3p3" placeholder="Enter Length..." />
+                                <Input
+                                    id="_IDGenInput3p3"
+                                    placeholder="Enter Length..."
+                                />
                             </HBox>
-                            <Label id="_IDGenLabe3i2" text="Width" />
+                            <Label
+                                id="_IDGenLabe3i2"
+                                text="Width"
+                            />
                             <HBox id="_IDGenBoxk">
-                                <Input id="_IDGenInut3p3" placeholder="Enter Width..." />
+                                <Input
+                                    id="_IDGenInut3p3"
+                                    placeholder="Enter Width..."
+                                />
                             </HBox>
-                            <Label id="_IDGenLabl3i2" text="Height" />
+                            <Label
+                                id="_IDGenLabl3i2"
+                                text="Height"
+                            />
                             <HBox id="_IDGenHoxk">
-                                <Input id="_IDGnInput3p3" placeholder="Enter Height..." />
+                                <Input
+                                    id="_IDGnInput3p3"
+                                    placeholder="Enter Height..."
+                                />
                             </HBox>
-                            <Label id="_IDGenLabel32" text="Weight" />
+                            <Label
+                                id="_IDGenLabel32"
+                                text="Weight"
+                            />
                             <HBox id="_IDGenHBox322">
-                                <Input id="_IDGenInput333" placeholder="Enter Weight..." />
+                                <Input
+                                    id="_IDGenInput333"
+                                    placeholder="Enter Weight..."
+                                />
                             </HBox>
-                            <Label id="_IDGenLabel322" text="Volume" />
+                            <Label
+                                id="_IDGenLabel322"
+                                text="Volume"
+                            />
                             <HBox id="_IDGenHBox3222">
-                                <Input id="_IDGenInput33" placeholder="Enter Volume.." />
+                                <Input
+                                    id="_IDGenInput33"
+                                    placeholder="Enter Volume.."
+                                />
                             </HBox>
-                            <Label id="_IDGenLabel112" text="Location" />
+                            <Label
+                                id="_IDGenLabel112"
+                                text="Location"
+                            />
                             <HBox id="_IDGenHBox32212">
-                                <Input id="_IDGenInput313" placeholder="Enter Location.." />
+                                <Input
+                                    id="_IDGenInput313"
+                                    placeholder="Enter Location.."
+                                />
+                                <Button
+                                    id="_IDGenButton1"
+                                    text="HU Content"
+                                    press="onHUContentPress"
+                                />
+                                <Button
+                                    id="_IDGenButton2"
+                                    text="HU Hierarchy"
+                                    press="onHUHierarchyPress"
+                                />
                             </HBox>
-
-                            <HBox id="_IDGenHBox5">
-                                <Button id="_IDGenButton1" text="HU Content" press="onHUContentPress" />
-                                <Button id="_IDGenButton2" text="HU Hierarchy" press="onHUHierarchyPress" />
-                            </HBox>
-
                         </f:SimpleForm>
                     </IconTabFilter>
 
                     <IconTabFilter
-                    id="icon3"
-                    visible="false"
+                        id="icon3"
+                        visible="false"
                         key="info2"
-                        text="Product List">
+                        text="HU Content"
+                    >
                         <Table
                             id="productTable"
                             inset="false"
                             items="{/productData}"
                             growing="true"
                             growingScrollToLoad="true"
-                            mode="None">
-
+                            mode="None"
+                        >
                             <columns>
                                 <Column id="_IDGenColumn1">
-                                    <Text id="_IDGenText1" text="S.No" />
+                                    <Text
+                                        id="_IDGenText1"
+                                        text="S.No"
+                                    />
                                 </Column>
                                 <Column id="_IDGenColumn2">
-                                    <Text id="_IDGenText2" text="Product" />
+                                    <Text
+                                        id="_IDGenText2"
+                                        text="Product"
+                                    />
                                 </Column>
                                 <Column id="_IDGenColumn3">
-                                    <Text id="_IDGenText3" text="Quantity" />
+                                    <Text
+                                        id="_IDGenText3"
+                                        text="Quantity"
+                                    />
                                 </Column>
                                 <Column id="_IDGenColumn4">
-                                    <Text id="_IDGenText4" text="UOM" />
+                                    <Text
+                                        id="_IDGenText4"
+                                        text="UOM"
+                                    />
                                 </Column>
                                 <Column id="_IDGenColumn5">
-                                    <Text id="_IDGenText5" text="Product Description" />
+                                    <Text
+                                        id="_IDGenText5"
+                                        text="Product Description"
+                                    />
                                 </Column>
                             </columns>
 
                             <items>
                                 <ColumnListItem id="_IDGenColumnListItem1">
                                     <cells>
-                                        <Text id="_IDGenText6" text="{serialNo}" />
-                                        <Text id="_IDGenText7" text="{product}" />
-                                        <Text id="_IDGenText8" text="{quantity}" />
-                                        <Text id="_IDGenText9" text="{uom}" />
-                                        <Text id="_IDGenText10" text="{productDescription}" />
+                                        <Text
+                                            id="_IDGenText6"
+                                            text="{serialNo}"
+                                        />
+                                        <Text
+                                            id="_IDGenText7"
+                                            text="{product}"
+                                        />
+                                        <Text
+                                            id="_IDGenText8"
+                                            text="{quantity}"
+                                        />
+                                        <Text
+                                            id="_IDGenText9"
+                                            text="{uom}"
+                                        />
+                                        <Text
+                                            id="_IDGenText10"
+                                            text="{productDescription}"
+                                        />
                                     </cells>
                                 </ColumnListItem>
                             </items>
@@ -216,32 +330,42 @@ xmlns:unified="sap.ui.unified"
                     </IconTabFilter>
 
                     <IconTabFilter
-                      id="icon4"
-                    visible="false"
+                        id="icon4"
+                        visible="false"
                         key="info3"
-                        text="Hierarchy">
+                        text="HU Hierarchy"
+                    >
                         <Table
                             id="simpleTable"
                             inset="false"
                             items="{/tableData}"
                             growing="true"
                             growingScrollToLoad="true"
-                            mode="None">
-
+                            mode="None"
+                        >
                             <columns>
                                 <Column id="_IDGenColumn6">
                                     <header>
-                                        <Label id="_IDGenLabel5" text="S.No" />
+                                        <Label
+                                            id="_IDGenLabel5"
+                                            text="S.No"
+                                        />
                                     </header>
                                 </Column>
                                 <Column id="_IDGenColumn7">
                                     <header>
-                                        <Label id="_IDGenLabel6" text="Higher Level HU" />
+                                        <Label
+                                            id="_IDGenLabel6"
+                                            text="Higher Level HU"
+                                        />
                                     </header>
                                 </Column>
                                 <Column id="_IDGenColumn8">
                                     <header>
-                                        <Label id="_IDGenLabel7" text="Highest Level HU" />
+                                        <Label
+                                            id="_IDGenLabel7"
+                                            text="Highest Level HU"
+                                        />
                                     </header>
                                 </Column>
                             </columns>
@@ -249,15 +373,23 @@ xmlns:unified="sap.ui.unified"
                             <items>
                                 <ColumnListItem id="_IDGenColumnListItem2">
                                     <cells>
-                                        <Text id="_IDGenText11" text="{serialNo}" />
-                                        <Text id="_IDGenText12" text="{higherLevelHU}" />
-                                        <Text id="_IDGenText13" text="{highestLevelHU}" />
+                                        <Text
+                                            id="_IDGenText11"
+                                            text="{serialNo}"
+                                        />
+                                        <Text
+                                            id="_IDGenText12"
+                                            text="{higherLevelHU}"
+                                        />
+                                        <Text
+                                            id="_IDGenText13"
+                                            text="{highestLevelHU}"
+                                        />
                                     </cells>
                                 </ColumnListItem>
                             </items>
                         </Table>
                     </IconTabFilter>
-
                 </items>
             </IconTabBar>
         </content>

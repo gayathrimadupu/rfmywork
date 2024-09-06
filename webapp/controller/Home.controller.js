@@ -1,9 +1,10 @@
 sap.ui.define([
     "./BaseController",
     "sap/ui/Device",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/m/MessageToast"
 ],
-    function (Controller, Device, MessageBox) {
+    function (Controller, Device, MessageBox,MessageToast) {
         "use strict";
 
         return Controller.extend("com.app.rfscreens.controller.Home", {
@@ -15,9 +16,7 @@ sap.ui.define([
                     this.ologinDialog.close()
                 }
             },
-            onResourceLoginBtnPress: function () {
-                this.getRouter().navTo("RouteUsermenu")
-            },
+
             onPressSignupBtn: async function () {
                 if (!this.oActiveLoansDialog) {
                     this.oActiveLoansDialog = await this.loadFragment("SignUpDetails")
@@ -85,29 +84,29 @@ sap.ui.define([
                 var isInboundSelected = this.byId("inboundCheckBox").getSelected();
                 var isOutboundSelected = this.byId("outboundCheckBox").getSelected();
                 var isInternalSelected = this.byId("internalCheckBox").getSelected();
-            
+
                 // Control visibility of ComboBoxes based on selected checkboxes
                 if (isInboundSelected) {
                     this.byId("_IDGenComboBox2").setVisible(true);
                 } else {
                     this.byId("_IDGenComboBox2").setVisible(false);
                 }
-            
+
                 if (isOutboundSelected) {
                     this.byId("_IDGenComboBox3").setVisible(true);
                 } else {
                     this.byId("_IDGenComboBox3").setVisible(false);
                 }
-            
+
                 if (isInternalSelected) {
                     this.byId("_IDGenComboBox4").setVisible(true);
                 } else {
                     this.byId("_IDGenComboBox4").setVisible(false);
                 }
-            
+
                 // Set visibility for any additional ComboBoxes if required
                 this.byId("_IDGenComboBox5").setVisible(!isInboundSelected && !isOutboundSelected && !isInternalSelected);
-            },            
+            },
             /**Getting Signup form Details*/
             onSubmitPress: function () {
 
@@ -233,7 +232,7 @@ sap.ui.define([
             },
             onSubmitPress: function () {
                 const oUserView = this.getView();
-                
+
                 // Get selected process areas
                 let selectedAreas = [];
                 if (oUserView.byId("inboundCheckBox").getSelected()) {
@@ -245,7 +244,7 @@ sap.ui.define([
                 if (oUserView.byId("internalCheckBox").getSelected()) {
                     selectedAreas.push("Internal");
                 }
-            
+
                 // Get selected values from ComboBoxes based on selected areas
                 let selectedItems = {};
                 if (selectedAreas.includes('Inbound')) {
@@ -257,19 +256,19 @@ sap.ui.define([
                 if (selectedAreas.includes('Internal')) {
                     selectedItems['Internal'] = oUserView.byId("_IDGenComboBox4").getSelectedKey();
                 }
-            
+
                 // Get values from other inputs
                 var oResource = this.byId("idEmployeeIDInput").getValue();
                 var oUsername = this.byId("idResourceNameInput").getValue();
                 var oEmail = this.byId("idInputEmail").getValue();
                 var oPhone = this.byId("idInputPhoneNumber").getValue();
-            
+
                 // Generate Password
                 function generatePassword() {
                     const regex = /[A-Za-z@!#$%&]/;
                     const passwordLength = 8;
                     let password = "";
-            
+
                     for (let i = 0; i < passwordLength; i++) {
                         let char = '';
                         while (!char.match(regex)) {
@@ -277,19 +276,19 @@ sap.ui.define([
                         }
                         password += char;
                     }
-            
+
                     return password;
                 }
                 var oPassword = generatePassword();
-            
+
                 // Validation
                 var bValid = true;
-            
+
                 if (selectedAreas.length === 0) {
                     sap.m.MessageToast.show("Select at least one Process Area");
                     bValid = false;
                 }
-            
+
                 if (!oResource) {
                     oUserView.byId("idEmployeeIDInput").setValueState("Error");
                     oUserView.byId("idEmployeeIDInput").setValueStateText("Employee ID cannot be empty");
@@ -297,7 +296,7 @@ sap.ui.define([
                 } else {
                     oUserView.byId("idEmployeeIDInput").setValueState("None");
                 }
-            
+
                 if (!oUsername) {
                     oUserView.byId("idResourceNameInput").setValueState("Error");
                     oUserView.byId("idResourceNameInput").setValueStateText("Resource Name cannot be empty");
@@ -305,7 +304,7 @@ sap.ui.define([
                 } else {
                     oUserView.byId("idResourceNameInput").setValueState("None");
                 }
-            
+
                 if (!oEmail) {
                     oUserView.byId("idInputEmail").setValueState("Error");
                     oUserView.byId("idInputEmail").setValueStateText("Email cannot be empty");
@@ -313,7 +312,7 @@ sap.ui.define([
                 } else {
                     oUserView.byId("idInputEmail").setValueState("None");
                 }
-            
+
                 if (!oPhone || oPhone.length !== 10 || !/^\d+$/.test(oPhone)) {
                     oUserView.byId("idInputPhoneNumber").setValueState("Error");
                     oUserView.byId("idInputPhoneNumber").setValueStateText("Mobile number must be a 10-digit numeric value");
@@ -321,7 +320,7 @@ sap.ui.define([
                 } else {
                     oUserView.byId("idInputPhoneNumber").setValueState("None");
                 }
-            
+
                 // Validate ComboBox selections based on selected areas
                 selectedAreas.forEach(area => {
                     if (!selectedItems[area]) {
@@ -346,12 +345,12 @@ sap.ui.define([
                         }
                     }
                 });
-            
+
                 if (!bValid) {
                     sap.m.MessageToast.show("Please fill all the required fields");
                     return; // Prevent further execution
                 }
-            
+
                 // Send data to the backend
                 var oModel = this.getView().getModel();
                 var that = this;
@@ -373,6 +372,54 @@ sap.ui.define([
                         sap.m.MessageBox.error("Error");
                     }
                 });
-            },                      
+            },
+            onLiveChange: function (oEvent) {
+                var temp = oEvent.getParameter('value');
+                var wh = '1710';
+                var inputField = this.byId('idwhInput');
+
+                if (temp !== wh) {
+                    inputField.setValueState('Error'); // or 'Warning' for a warning state
+                    MessageBox.error("Choose Correct Warehouse Number");
+                } else {
+                    inputField.setValueState('None');
+                }
+            },
+            onTogglePasswordVisibility: function () {
+                var oView = this.getView();
+                var oInput = oView.byId("passwordInput");
+                var oButton = oView.byId("toggleButton");
+
+                // Check the current type of the input field
+                if (oInput.getType() === "Password") {
+                    // Change input type to Text and update icon
+                    oInput.setType("Text");
+                    oButton.setIcon("sap-icon://hide");
+                } else {
+                    // Change input type to Password and update icon
+                    oInput.setType("Password");
+                    oButton.setIcon("sap-icon://show");
+                }
+            },
+            onResourceLoginBtnPress: function () {
+                debugger
+              
+                var oU = this.getView().byId("IdResourceInput").getValue();
+                var oP = this.getView().byId("Idpassword").getValue();
+                if (oU === "111023" && oP === "Kalyani@123") {
+                    this.getRouter().navTo("RouteUsermenu", { id: oU })
+                }
+                else if (oU === "111024" && oP === "Gayathri@123") {
+                    this.getRouter().navTo("RouteUsermenu", { id: oU })
+                }
+
+               
+                else {
+                    MessageToast.show("Provide Correct details")
+                }
+            },
+
+
+
         });
     });

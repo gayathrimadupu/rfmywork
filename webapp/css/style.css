@@ -78,3 +78,11 @@
   -webkit-backdrop-filter: blur(10px); /* Safari support */
 
 }
+#_IDGenHBoxContainer {
+  margin: 0; /* Remove any margins */
+  padding: 0; /* Remove any padding */
+}
+
+#_IDGenHBoxContainer > * {
+  margin: 0 !important; /* Ensure child elements have no margin */
+}
